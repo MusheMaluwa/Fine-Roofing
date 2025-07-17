@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer-container">
       <div className="footer-content">
         <div className="footer-branding">
-          <div className="footer-logo">FineRadio</div>
+          <div className="footer-logo">FineRoofing</div>
           <div className="footer-contact">
             <a href="tel:0123456789">012 345 6789</a>
             <a href="mailto:info@fineroof.com">info@fineroof.com</a>
