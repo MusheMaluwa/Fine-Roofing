@@ -1,0 +1,204 @@
+.projects-section {
+  padding: 5rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+  background: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: #03045e;
+  position: relative;
+  opacity: 0;
+  animation: fadeInDown 0.8s ease-out 0.3s forwards;
+}
+
+.projects-section h2::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #0077b6, #00b4d8);
+  margin: 1rem auto;
+  transform: scaleX(0);
+  transform-origin: center;
+  animation: expandLine 1s ease-out 0.8s forwards;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expandLine {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.projects-section p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.8;
+  color: #333;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.6s forwards;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.project-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(30px);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 119, 182, 0.2);
+}
+
+.project-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-item:hover img {
+  transform: scale(1.05);
+}
+
+.project-item p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  margin: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: left;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.project-item:hover p {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Staggered animations for project items */
+.project-item:nth-child(1) { animation-delay: 0.8s; }
+.project-item:nth-child(2) { animation-delay: 1s; }
+.project-item:nth-child(3) { animation-delay: 1.2s; }
+.project-item:nth-child(4) { animation-delay: 1.4s; }
+.project-item:nth-child(5) { animation-delay: 1.6s; }
+.project-item:nth-child(6) { animation-delay: 1.8s; }
+.project-item:nth-child(7) { animation-delay: 2s; }
+.project-item:nth-child(8) { animation-delay: 2.2s; }
+.project-item:nth-child(9) { animation-delay: 2.4s; }
+.project-item:nth-child(10) { animation-delay: 2.6s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Lightbox effect overlay */
+.project-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 119, 182, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-item:hover::after {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .project-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .project-item img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .projects-section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .project-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 2rem 1rem;
+  background: white;
+  }
+  
+  .projects-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .project-gallery {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .project-item p {
+    transform: translateY(0);
+    opacity: 1;
+    position: relative;
+    background: #03045e;
+    color: white;
+    padding: 1rem;
+  }
+}
