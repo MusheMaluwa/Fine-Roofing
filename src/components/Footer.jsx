@@ -31,7 +31,7 @@ const Footer = () => {
           <div className="link-column">
             <h4>Services</h4>
             <a href="/roofing">Roofing</a>
-            <a href="/repairs">Repairs</a>
+            <a href="/repair">Repairs</a>
             <a href="/maintenance">Maintenance</a>
           </div>
         </div>
